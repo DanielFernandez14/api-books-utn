@@ -2,7 +2,9 @@ import express from "express"
 import { Schema, model } from "mongoose"
 import { connectMongoDB } from "./config/mongo"
 import cors from "cors"
+import dotenv from "dotenv"
 
+dotenv.config()
 
 process.loadEnvFile()
 
