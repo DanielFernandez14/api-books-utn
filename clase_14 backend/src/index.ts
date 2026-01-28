@@ -6,7 +6,6 @@ import dotenv from "dotenv"
 
 dotenv.config()
 
-process.loadEnvFile()
 
 const PORT = process.env.PORT
 
