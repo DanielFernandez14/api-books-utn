@@ -116,7 +116,6 @@ app.patch("/api/books/:id", async (req, res): Promise<any> => {
 
 
 app.listen(PORT, () => {
-    console.log(`✅ Servidor en escucha en el puerto http://localhost: ${PORT}`)
-
     connectMongoDB()
+    console.log(`✅ Servidor en escucha en el puerto http://localhost: ${PORT}`)
 })
