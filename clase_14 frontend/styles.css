@@ -1,0 +1,191 @@
+/* Base */
+* {
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100svh; /* mejor en mobile que 100vh */
+  padding: 16px;
+  margin: 0;
+
+  /* legibilidad */
+  text-align: center;
+}
+
+form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  /* mobile-first: ancho cómodo */
+  width: min(100%, 640px);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+
+  /* que se vea prolijo en pantallas angostas */
+  text-align: left;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+
+  /* mejor “tap target” en mobile */
+  min-height: 44px;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+/* Grid de libros: mobile-first */
+#booksList {
+  width: min(100%, 1200px);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  margin-top: 24px;
+  padding: 0;
+}
+
+.book {
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 20px -7px rgba(0, 0, 0, 0.75);
+
+  /* para que textos largos no rompan el layout */
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+.book .cont-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  /* en mobile, si hay varios botones, que bajen de línea */
+  flex-wrap: wrap;
+}
+
+.book .btn-update {
+  background-color: lightblue;
+}
+
+.book .btn-delete {
+  background-color: rgb(230, 13, 60);
+}
+
+/* ===== Breakpoints (mobile-first) ===== */
+
+/* >= 480px */
+@media (min-width: 480px) {
+  body {
+    padding: 20px;
+  }
+
+  form {
+    padding: 24px;
+  }
+
+  #booksList {
+    gap: 22px;
+  }
+}
+
+/* >= 640px */
+@media (min-width: 640px) {
+  form {
+    padding: 30px;
+  }
+
+  #booksList {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+}
+
+/* >= 768px */
+@media (min-width: 768px) {
+  body {
+    padding: 30px;
+  }
+
+  #booksList {
+    gap: 36px;
+    margin-top: 30px;
+  }
+}
+
+/* >= 1024px */
+@media (min-width: 1024px) {
+  /* tu estilo original: form ~ 60%, pero con límite para que no quede gigante */
+  form {
+    width: min(60%, 900px);
+  }
+
+  #booksList {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px; /* como tu original */
+  }
+}
+
+/* >= 1280px */
+@media (min-width: 1280px) {
+  form {
+    width: min(60%, 980px);
+  }
+
+  #booksList {
+    width: min(100%, 1280px);
+  }
+}
+
+/* >= 1536px */
+@media (min-width: 1536px) {
+  form {
+    width: min(60%, 1100px);
+  }
+
+  #booksList {
+    width: min(100%, 1400px);
+  }
+}
